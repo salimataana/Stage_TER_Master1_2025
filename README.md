@@ -1,57 +1,65 @@
-# Stage_TER_Master1_2025
-
-                             ### EXPLICATION DU PROJET
-
-
-                    1-- MCP POUR MON SYSTEME DE FICHIERS
-
-
 # Utilisation de Claude Desktop avec accès au système de fichiers
 
-**Ce guide explique comment étendre Claude pour Desktop afin qu'il puisse lire, écrire, déplacer et rechercher des fichiers sur votre ordinateur — toujours avec votre permission.
+Ce guide explique comment étendre **Claude pour Desktop** afin qu'il puisse lire, écrire, déplacer et rechercher des fichiers sur votre ordinateur — toujours avec votre permission.
 
-Étapes principales
-Téléchargez Claude Desktop
-Choisissez la version macOS ou Windows (Linux non supporté). Installez et assurez-vous d’avoir la dernière version via le menu Claude > « Vérifier les mises à jour… ».
+---
 
-Ajoutez le serveur MCP pour le système de fichiers
+## 1. Télécharger Claude Desktop
 
-Ouvrez le menu Claude > « Paramètres… » > « Développeur » > « Modifier la configuration ».
+- Choisissez la version **macOS** ou **Windows** (Linux non pris en charge).  
+- Installez l’application.  
+- Vérifiez que vous avez la dernière version via le menu :  
+  `Claude` > **Vérifier les mises à jour…**
 
-Modifiez le fichier claude_desktop_config.json en y ajoutant la configuration du serveur filesystem, par exemple :
+---
+
+## 2. Ajouter le serveur MCP pour le système de fichiers
+
+1. Ouvrez le menu **Claude** > **Paramètres…** > onglet **Développeur** > cliquez sur **Modifier la configuration**.  
+2. Cela ouvre le fichier `claude_desktop_config.json`. Remplacez son contenu par exemple par :  
+
+   ```json
+   {
+     "mcpServers": {
+       "filesystem": {
+         "command": "npx",
+         "args": [
+           "-y",
+           "@modelcontextprotocol/server-filesystem",
+           "C:\\Users\\username\\Desktop",
+           "C:\\Users\\username\\Downloads"
+         ]
+       }
+     }
+   }
+   
 
 
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "C:\\Users\\username\\Desktop",
-        "C:\\Users\\username\\Downloads"
-        "C:\\Users\\username\\Documents"
-      ]
-    }
-  }
-}
+Remplacez username par votre nom d’utilisateur.
 
+Adaptez les chemins aux dossiers que Claude peut accéder/modifier.
 
+Assurez-vous que Node.js est installé :
 
+Ouvrez le terminal (macOS) ou l’invite de commande (Windows).
 
-Remplacez username par votre nom d’utilisateur et adaptez les chemins selon vos dossiers.
+Tapez node --version.
 
-Node.js doit être installé (vérifiez avec node --version dans le terminal).
+Si la commande n’est pas reconnue, installez Node depuis nodejs.org.
 
-Redémarrez Claude Desktop
-Une icône en forme de curseur apparaîtra dans la zone de saisie, donnant accès aux outils du serveur filesystem.
+3. Redémarrer Claude Desktop
+Après modification, redémarrez l’application.
 
-Testez les fonctionnalités
-Demandez par exemple :
+Une icône en forme de curseur apparaîtra dans la zone de saisie, permettant d’accéder aux outils du serveur filesystem.
 
-« Peux-tu écrire un poème sur mon bureau ? »
+4. Tester les fonctionnalités
+Essayez des commandes comme :
 
-« Quels fichiers liés au travail sont dans mes téléchargements ? »
+Peux-tu écrire un poème sur mon bureau ?
 
-« Déplace toutes les images de mon bureau dans un dossier ‘Images’. »
-Claude demandera votre autorisation avant toute action.
+Quels fichiers liés au travail sont dans mes téléchargements ?
+
+Déplace toutes les images de mon bureau dans un dossier "Images".
+
+Claude demandera toujours votre permission avant d’exécuter une action.
+
