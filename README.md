@@ -1,65 +1,53 @@
 # Utilisation de Claude Desktop avec accès au système de fichiers
 
-Ce guide explique comment étendre **Claude pour Desktop** afin qu'il puisse lire, écrire, déplacer et rechercher des fichiers sur votre ordinateur — toujours avec votre permission.
+Permet à Claude Desktop de lire, écrire, déplacer et rechercher des fichiers sur votre ordinateur, avec votre permission.
 
 ---
 
-## 1. Télécharger Claude Desktop
+    1. Télécharger Claude Desktop
 
-- Choisissez la version **macOS** ou **Windows** (Linux non pris en charge).  
-- Installez l’application.  
-- Vérifiez que vous avez la dernière version via le menu :  
-  `Claude` > **Vérifier les mises à jour…**
+- Téléchargez et installez la version macOS ou Windows.  
+- Vérifiez d’avoir la dernière version via `Claude > Vérifier les mises à jour…`
 
 ---
 
-## 2. Ajouter le serveur MCP pour le système de fichiers
+     2. Configurer le serveur filesystem
 
-1. Ouvrez le menu **Claude** > **Paramètres…** > onglet **Développeur** > cliquez sur **Modifier la configuration**.  
-2. Cela ouvre le fichier `claude_desktop_config.json`. Remplacez son contenu par exemple par :  
+- Ouvrez `Claude > Paramètres… > Développeur > Modifier la configuration`.  
+- Remplacez le contenu du fichier `claude_desktop_config.json` par :
 
-   ```json
-   {
-     "mcpServers": {
-       "filesystem": {
-         "command": "npx",
-         "args": [
-           "-y",
-           "@modelcontextprotocol/server-filesystem",
-           "C:\\Users\\username\\Desktop",
-           "C:\\Users\\username\\Downloads"
-         ]
-       }
-     }
-   }
-   
+  ```json
+  {
+    "mcpServers": {
+      "filesystem": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem",
+          "C:\\Users\\username\\Desktop",
+          "C:\\Users\\username\\Downloads"
+        ]
+      }
+    }
+  }
 
 
-Remplacez username par votre nom d’utilisateur.
+## Remplacez username par votre nom d’utilisateur et adaptez les chemins aux dossiers accessibles.
 
-Adaptez les chemins aux dossiers que Claude peut accéder/modifier.
+## Vérifiez que Node.js est installé (node --version dans terminal ou invite de commandes). Sinon, installez-le depuis nodejs.org.
 
-Assurez-vous que Node.js est installé :
-
-Ouvrez le terminal (macOS) ou l’invite de commande (Windows).
-
-Tapez node --version.
-
-Si la commande n’est pas reconnue, installez Node depuis nodejs.org.
-
-3. Redémarrer Claude Desktop
+    3. Redémarrer Claude Desktop
 Après modification, redémarrez l’application.
 
-Une icône en forme de curseur apparaîtra dans la zone de saisie, permettant d’accéder aux outils du serveur filesystem.
+## Une icône en forme de curseur apparaît dans la zone de saisie, donnant accès aux outils filesystem.
 
-4. Tester les fonctionnalités
-Essayez des commandes comme :
+    4. Utilisation
+## Exemples de commandes à tester :
 
-Peux-tu écrire un poème sur mon bureau ?
+    « Écris un poème sur mon bureau »
 
-Quels fichiers liés au travail sont dans mes téléchargements ?
+    « Trouve les fichiers liés au travail dans mes téléchargements »
 
-Déplace toutes les images de mon bureau dans un dossier "Images".
+    « Déplace les images du bureau vers un dossier ‘Images’ »
 
-Claude demandera toujours votre permission avant d’exécuter une action.
-
+Claude demandera toujours votre approbation avant d’exécuter une action.
