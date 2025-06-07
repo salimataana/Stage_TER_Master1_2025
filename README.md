@@ -1,4 +1,4 @@
-# Utilisation de Claude Desktop avec accès au système de fichiers
+# Utilisation de Claude Desktop avec MCP pour accéder au système de fichiers
 
 Permet à Claude Desktop de lire, écrire, déplacer et rechercher des fichiers sur votre ordinateur, avec votre permission.
 
@@ -51,3 +51,22 @@ Après modification, redémarrez l’application.
     « Déplace les images du bureau vers un dossier ‘Images’ »
 
 Claude demandera toujours votre approbation avant d’exécuter une action.
+
+
+
+
+
+---
+
+## Pourquoi installer Node.js ?
+
+Claude Desktop utilise une commande `npx` (fournie avec Node.js) pour lancer un serveur qui permet d'accéder aux fichiers de votre ordinateur.
+
+👉 Sans Node.js, Claude ne pourra pas lire, écrire ou déplacer des fichiers sur votre machine.
+
+📦 Pour installer Node.js : [https://nodejs.org](https://nodejs.org)
+
+Pour vérifier que Node est bien installé, utilisez cette commande dans votre terminal ou invite de commandes :
+
+```bash
+node --version
