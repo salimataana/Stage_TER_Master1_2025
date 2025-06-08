@@ -237,16 +237,16 @@ node dist/index.js
 
 ## Résumé rapide
 
-| Étape                 | Commande / Action                                              |
-| --------------------- | -------------------------------------------------------------- |
-| Cloner projet         | `git clone https://github.com/benborla29/mcp-server-mysql.git` |
-| Installer dépendances | `npm install`                                                  |
-| Démarrer MySQL        | Ouvrir XAMPP > Start MySQL                                     |
-| Créer base de données | Via phpMyAdmin, créer `mcp_mysql`                              |
-| Créer utilisateur     | Via phpMyAdmin, utilisateur `mcpuser`                          |
-| Tester connexion      | `mysql -u mcpuser -p` puis `USE mcp_mysql;`                    |
-| Configurer MCP        | Voir fichier JSON avec variables d’environnement               |
-| Lancer MCP            | `node dist/index.js`                                           |
+| Étape                 | Commande / Action                                                             |
+| --------------------- |-------------------------------------------------------------------------------|
+| Cloner projet         | `git clone https://github.com/benborla29/mcp-server-mysql.git`                |
+| Installer dépendances | `npm install`                                                                 |
+| Démarrer MySQL        | Ouvrir XAMPP > Start MySQL                                                    |
+| Créer base de données | Via phpMyAdmin, créer `mcp_mysql`                                             |
+| Créer utilisateur     | Via phpMyAdmin, utilisateur `mcpuser`                                         |
+| Tester connexion      | `mysql -u mcpuser -p` puis `USE mcp_mysql;`                                   |
+| Configurer MCP        | Voir fichier JSON avec variables d’environnement (claude_desktop_config.json) |
+| Lancer MCP            | `node dist/index.js`                                                          |
 
 ---
 
