@@ -250,6 +250,12 @@ node dist/index.js
 
 ---
 
-Si tu as besoin, je peux aussi t’aider à écrire un script batch ou autre pour automatiser.
+  Node (Node.js) : c’est l’environnement qui permet d’exécuter du code JavaScript en dehors du navigateur, par exemple sur ton ordinateur ou un serveur.
 
-Veux-tu ça ?
+npm : c’est le gestionnaire de paquets (packages) pour Node.js. Il sert à installer, mettre à jour et gérer les bibliothèques et outils que tu utilises dans ton projet Node.js.
+
+En résumé :
+
+Node = le moteur qui fait tourner ton code JavaScript.
+
+npm = l’outil qui te permet d’installer et gérer les modules pour Node.js.
